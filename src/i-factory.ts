@@ -57,12 +57,12 @@ export class MissionFactory implements IMissionFactory {
                             reduce[r.viewNo] = {
                                 chainGroup: {}
                             };
-                            missionService[r.viewNo] = new MissionChainService(reduce[r.viewNo].chainGroup, this.m_UserService);
+                            missionService[r.viewNo] = new MissionChainService(this.m_EnumFactory, reduce[r.viewNo].chainGroup, this.m_UserService);
                         } else {
                             reduce[r.viewNo] = {
                                 onceItems: []
                             };
-                            missionService[r.viewNo] = new MissionOnceService(reduce[r.viewNo].onceItems, this.m_UserService);
+                            missionService[r.viewNo] = new MissionOnceService(this.m_EnumFactory, reduce[r.viewNo].onceItems, this.m_UserService);
                         }
                     }
 

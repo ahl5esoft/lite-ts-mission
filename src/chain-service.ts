@@ -1,3 +1,4 @@
+import { EnumFactoryBase } from 'lite-ts-enum';
 import { IUserService } from 'lite-ts-user';
 
 import { ChainGroup } from './chain-group';
@@ -8,6 +9,7 @@ import { MissionServiceBase } from './service-base';
 
 export class MissionChainService extends MissionServiceBase {
     public constructor(
+        private m_EnumFactory: EnumFactoryBase,
         private m_Group: ChainGroup,
         userService: IUserService,
     ) {
@@ -21,7 +23,7 @@ export class MissionChainService extends MissionServiceBase {
             return children?.length ? await this.buildItem(children[0]) : null;
         }
 
-        return new MissionChainItemService(enumItem, this.userService, this);
+        return new MissionChainItemService(enumItem, this.userService, this.m_EnumFactory, this);
     }
 
     public async findItems() {

@@ -5,7 +5,7 @@ import { MissionItemServiceBase } from './item-service-base';
 
 export class MissionChainItemService extends MissionItemServiceBase {
     protected get titleKey() {
-        return `ViewData-${this.enumItem.viewNo}-chain-type-${this.enumItem.chain.type}`;
+        return `ViewData-${this.enumItem.viewNo}-chain-${this.enumItem.chain.type}`;
     }
 
     public async receive(uow: IUnitOfWork) {

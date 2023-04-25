@@ -1,3 +1,4 @@
+import { EnumFactoryBase } from 'lite-ts-enum';
 import { IUserService } from 'lite-ts-user';
 
 import { MissionData } from './data';
@@ -6,6 +7,7 @@ import { MissionServiceBase } from './service-base';
 
 export class MissionOnceService extends MissionServiceBase {
     public constructor(
+        private m_EnumFactory: EnumFactoryBase,
         private m_Items: MissionData[],
         userService: IUserService,
     ) {
@@ -14,7 +16,7 @@ export class MissionOnceService extends MissionServiceBase {
 
     public async findItems() {
         return this.m_Items.map(r => {
-            return new MissionOnceItemService(r, this.userService, this);
+            return new MissionOnceItemService(r, this.userService, this.m_EnumFactory, this);
         });
     }
 }

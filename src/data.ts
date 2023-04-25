@@ -1,7 +1,7 @@
-import { EnumItem } from 'lite-ts-enum';
+import { EnumCcItem } from 'lite-ts-enum';
 import { Value, ValueCondition } from 'lite-ts-value';
 
-export class MissionData extends EnumItem {
+export class MissionData extends EnumCcItem {
     public static ctor = 'MissionData';
 
     public viewNo: number;
